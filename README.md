@@ -79,8 +79,8 @@ https://github.com/visualopsholdings/ringbuffer
 To be a sibling of this repo. So they need to be in the same folder like this:
 
 + folder
-++ ringbuffer
 ++ cmd
+++ ringbuffer
 
 So on your Linux (or mac using Homebrew etc), get all you need:
 
