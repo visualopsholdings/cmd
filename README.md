@@ -72,6 +72,16 @@ It's written in a subset of C++ that happily builds on an Arduino:
 BUT for the actual development, including a fairly complex debugger for the LOGO stuff,
 we use all of these things and just don't build that bit for the Arduino.
 
+Firstly, checkout the repo:
+
+https://github.com/visualopsholdings/ringbuffer
+
+To be a sibling of this repo. So they need to be in the same folder like this:
+
++ folder
+++ ringbuffer
+++ cmd
+
 So on your Linux (or mac using Homebrew etc), get all you need:
 
 ```
