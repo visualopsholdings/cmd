@@ -25,6 +25,10 @@ void Cmd::outstate() const {
 #include "nodebug.hpp"
 #endif
 
+#ifndef min
+#define min(a,b)            (((a) < (b)) ? (a) : (b))
+#endif
+
 Cmd::Cmd() {
   _len = 0;
   for (int i=0; i<sizeof(_buffer); i++) {
@@ -33,6 +37,10 @@ Cmd::Cmd() {
 }
 
 Cmd::~Cmd() {
+}
+
+int Cmd::size() const {
+  return sizeof(_buffer);
 }
 
 void Cmd::accept(RingBuffer *buffer) {
@@ -68,13 +76,15 @@ bool Cmd::ready() {
 
 }
 
-void Cmd::read(char *s, int l) {
+void Cmd::read(char *s, int len) {
 
-  DEBUG_IN(Cmd, "read");
+  DEBUG_IN_ARGS(Cmd, "read", "%i", len);
   
   int i = findNext();
   if (i >= 0) {
   
+    i = min(i, len);
+    
     // copy the cmd out
     memmove(s, _buffer, i);
     s[i] = 0;

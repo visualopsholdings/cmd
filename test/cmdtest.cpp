@@ -185,6 +185,24 @@ BOOST_AUTO_TEST_CASE( byteByByte )
 
 }
 
+BOOST_AUTO_TEST_CASE( tinyBuf )
+{
+  cout << "=== tinyBuf ===" << endl;
+  
+  RingBuffer buffer;
+  Cmd cmd;
+
+  buffer.write("AAAAAAA;");
+  cmd.accept(&buffer);
+  
+  BOOST_CHECK(cmd.ready());
+
+  char c[3];
+  cmd.read(c, sizeof(c));
+  BOOST_CHECK_EQUAL(c, "AAA");
+
+}
+
 
 
 

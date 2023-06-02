@@ -24,7 +24,7 @@
 class RingBuffer;
 
 #ifndef CMD_SIZE
-#define CMD_SIZE  128
+#define CMD_SIZE  64
 #endif
 
 class Cmd {
@@ -33,9 +33,10 @@ public:
   Cmd();
   ~Cmd();
   
+  int size() const;
   void accept(RingBuffer *buffer);
   bool ready();
-  void read(char *s, int l); // char s[3]; read(s, sizeof(s));
+  void read(char *s, int len); // char s[3]; read(s, sizeof(s));
   
 #ifdef CMD_DEBUG
   void outstate() const;
