@@ -24,7 +24,7 @@
 class RingBuffer;
 
 #ifndef CMD_SIZE
-#define CMD_SIZE  64
+#define CMD_SIZE  32
 #endif
 
 class Cmd {
